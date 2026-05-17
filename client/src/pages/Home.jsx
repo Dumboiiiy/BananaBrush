@@ -4,6 +4,7 @@ import Steps from "../components/Steps";
 import { stepsData } from "../assets/assets";
 import Description from "../components/Description";
 import Testimonials from "../components/Testimonials";
+import GenerateBtn from "../components/GenerateBtn.jsx";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Steps />
       <Description />
       <Testimonials />
+      <GenerateBtn />
     </div>
   );
 };
