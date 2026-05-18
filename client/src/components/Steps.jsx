@@ -1,10 +1,16 @@
 import React from "react";
 import { stepsData } from "../assets/assets";
+import { motion, transform } from "motion/react";
 
 const Steps = () => {
   return (
-    <div className="flex flex-col items-center justify-center py-24">
-      
+    <motion.div
+      initial={{ opacity: 0.2, y: 100 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex flex-col items-center justify-center py-24"
+    >
       <h1 className="text-4xl sm:text-5xl font-bold text-[#2B1B12] mb-4">
         How it works
       </h1>
@@ -19,7 +25,6 @@ const Steps = () => {
             key={index}
             className="flex items-center gap-5 p-6 sm:p-8 bg-[#FFF7F3] border border-[#F3D4C8] rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer rounded-lg"
           >
-            
             <div className="bg-[#FFE2D6] p-4 rounded-2xl">
               <img width={32} src={item.icon} alt="" />
             </div>
@@ -33,11 +38,10 @@ const Steps = () => {
                 {item.description}
               </p>
             </div>
-
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

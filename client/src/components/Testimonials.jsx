@@ -1,9 +1,16 @@
 import React from "react";
 import { assets, testimonialsData } from "../assets/assets";
+import { motion, transform } from "motion/react";
 
 const Testimonials = () => {
   return (
-    <div className="flex flex-col items-center justify-center my-20 py-12">
+    <motion.div
+      initial={{ opacity: 0.2, y: 100 }}
+      transition={{ duration: 1 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="flex flex-col items-center justify-center my-20 py-12"
+    >
       <h1 className="text-4xl sm:text-5xl font-bold text-[#2B1B12] mb-3 text-center">
         Customer Testimonials
       </h1>
@@ -38,7 +45,7 @@ const Testimonials = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
