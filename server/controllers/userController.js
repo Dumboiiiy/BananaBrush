@@ -31,6 +31,7 @@ const registerUser = async (req, res) => {
           email: user.email,
           creditBalance: user.creditBalance,
         },
+        success: true,
         token,
       });
   } catch (error) {
@@ -58,6 +59,7 @@ const loginUser = async (req, res) => {
             email: user.email,
             creditBalance: user.creditBalance,
           },
+          success: true,
           token,  
         });
     }
@@ -70,14 +72,14 @@ const userCredits = async (req, res) => {
   try {
     const { userId } = req.body;
 
-
     const user = await userModel.findById(userId);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-    res.status(200).json({ credits: user.creditBalance, user: {name: user.name} });
+    res.status(200).json({ success: true, user, credits: user.creditBalance });
   } catch (error) {
     res.status(500).json({ error: "Error adding credits" });
+    console.log(error);
   }
 };
 
